@@ -24,7 +24,6 @@ void SpinSolution::measuredvel_callback(const ArrayMsg &msg)
 
 void SpinSolution::measuredpos_callback(const ArrayMsg &msg)
 {
-	RCLCPP_INFO(this->get_logger(), "New position!! (%f, %f)", msg.data[0], msg.data[1]);
 	pos_ = ArrayMsg();
 	pos_.data = msg.data;
 	timer_ = this->create_wall_timer(1ms, std::bind(&SpinSolution::timer_callback, this));
